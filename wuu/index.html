@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="wuu-Hant" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>王禹嘉 (Geo Wang) – 數學系學生</title>
+	<link rel="icon" href="https://play-lh.googleusercontent.com/EyZzBivWAT_6dFOiIZ9JwuyE8duosWa98oDXe46yVUqMMTp07b0JVdmJEYxMrRWXzl1K=w240-h480-rw" type="image/png">
+	<script src="/assets/theme.js"></script>
+	<style>
+        /* NYU brand colors, mapped to roles */
+        :root {
+            --page-bg: #eee6f3;
+            --header-bg: #57068c;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(51, 6, 98, 0.08);
+            --heading: #330662;
+            --text: #404040;
+            --accent: #57068c;
+            --accent-soft: #ab82c5;
+            --item-bg: #f2f2f2;
+            --item-border: #8900e1;
+            --link: #702b9d;
+            --link-hover: #57068c;
+            --chip-bg: #eee6f3;
+            --chip-text: #330662;
+            --status-bg: #57068c;
+            --contrib-bg: #ffffff;
+            --quote: #7b5aa6;
+            --muted: #6d6d6d;
+        }
+
+        [data-theme="dark"] {
+            --page-bg: #140228;
+            --header-bg: #330662;
+            --card-bg: #1f0439;
+            --card-shadow: rgba(0, 0, 0, 0.4);
+            --heading: #eee6f3;
+            --text: #d6d6d6;
+            --accent: #ab82c5;
+            --accent-soft: #7b5aa6;
+            --item-bg: #2a0a4b;
+            --item-border: #ab82c5;
+            --link: #c9a8de;
+            --link-hover: #eee6f3;
+            --chip-bg: #3a1463;
+            --chip-text: #eee6f3;
+            --status-bg: #8900e1;
+            --contrib-bg: #1f0439;
+            --quote: #ab82c5;
+            --muted: #b8b8b8;
+        }
+
+        body {
+            background-color: var(--page-bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+        }
+
+        .site-header {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .custom-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.85);
+        }
+
+        .site-title {
+            font-size: 2rem;
+            margin: 1rem 0 0.25rem;
+        }
+
+        .site-title a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .site-reading {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 0 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .site-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        .lang-nav {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .lang-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin: 0 0.4rem;
+        }
+
+        .lang-nav a:hover,
+        .lang-nav a[aria-current="page"] {
+            color: #ffffff;
+        }
+
+        .lang-nav a[aria-current="page"] {
+            border-bottom: 2px solid #ab82c5;
+        }
+
+        .content-area {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hentry {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px var(--card-shadow);
+        }
+
+        .entry-header h1 {
+            color: var(--heading);
+            font-size: 2rem;
+            margin: 0 0 1.5rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .intro-section {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .intro-section a {
+            color: var(--link);
+            font-weight: 600;
+        }
+
+        .quote {
+            color: var(--quote);
+            font-style: italic;
+            margin: 0 0 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-soft);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-badge {
+            background-color: var(--chip-bg);
+            color: var(--chip-text);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .projects-section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            color: var(--heading);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .project-category {
+            margin-bottom: 2rem;
+        }
+
+        .project-item {
+            margin: 1.5rem 0;
+            padding: 1.2rem;
+            background-color: var(--item-bg);
+            border-left: 4px solid var(--item-border);
+            border-radius: 4px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px var(--card-shadow);
+        }
+
+        .project-item h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .project-item a {
+            color: var(--link);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-item a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        .project-description {
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        .sub-project-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .contribution-item {
+            margin: 1rem 0 1rem 2rem;
+            padding: 0.8rem;
+            background-color: var(--contrib-bg);
+            border-left: 3px solid var(--accent-soft);
+            border-radius: 3px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 0.3rem 0 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--chip-bg);
+            color: var(--chip-text);
+            padding: 0.15rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .tag.status {
+            background-color: var(--status-bg);
+            color: #ffffff;
+        }
+
+        .project-links {
+            font-size: 0.9rem;
+            margin: 0.3rem 0 0;
+        }
+
+        .project-links a + a::before {
+            content: "·";
+            color: var(--muted);
+            margin: 0 0.5rem;
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hentry {
+                padding: 1.5rem;
+            }
+
+            .entry-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .intro-section {
+                font-size: 1rem;
+            }
+
+            .contribution-item {
+                margin-left: 1rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header">
+		<a href="/" class="custom-logo-link" rel="home">
+			<img src="/geo.png" class="custom-logo" alt="王禹嘉 (Geo Wang)" />
+		</a>
+		<p class="site-title">
+			<a href="/" rel="home">王禹嘉 (Geo Wang)</a>
+		</p>
+		<p class="site-description">數學系學生</p>
+		<nav class="lang-nav">
+			<a href="/en/" lang="en">English</a>
+			<a href="/zh-TW/" lang="zh-TW">中文</a>
+			<a href="/wuu/" lang="wuu-Hant" aria-current="page">上海話</a>
+			<a href="/ja/" lang="ja">日本語</a>
+			<a href="/fr/" lang="fr">Français</a>
+		</nav>
+	</header>
+
+	<div id="content" class="site-content">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main">
+				<article class="hentry">
+					<header class="entry-header">
+						<h1 class="entry-title">儂好！關於我搭我個開源項目</h1>
+					</header>
+
+					<div class="entry-content">
+						<section class="intro-section">
+							<p class="quote">認得自家是一切智慧個開端。——亞里士多德</p>
+							<p>我叫<strong>王禹嘉</strong>，來自上海市盧灣區，弗過現在住辣浦東。我現在辣紐約大學讀數學。我歡喜做點解決實際問題個小工具，也辣 F-Droid 浪開發、維護搭發佈開源個 Android 應用。除脫數學，我對化學也有一定個興趣，老早參加過化學奧賽。</p>
+							<p style="margin-top: 1.5rem;">我對傳統中國詩歌也有濃厚個興趣，高中個辰光寫了交關個詩，儂可以辣我個<a href="/poems/" target="_blank">詩集</a>看到伊拉（隨便寫寫個，覅忒認真）。另外我是哈耶克搭奧地利經濟學派個追隨者，有興趣可以看看我個<a href="https://blog.lanticy.dpdns.org" target="_blank">博客</a>。</p>
+							<p style="margin-top: 1.5rem;">老高興認得儂！讓阿拉保持聯繫，歡迎隨時隨地搭我解山河！⚡️</p>
+
+							<div class="tech-stack">
+								<span class="tech-badge">Python</span>
+								<span class="tech-badge">C++</span>
+								<span class="tech-badge">JavaScript</span>
+								<span class="tech-badge">Kotlin</span>
+								<span class="tech-badge">Java</span>
+								<span class="tech-badge">HTML/CSS</span>
+								<span class="tech-badge">LaTeX</span>
+								<span class="tech-badge">PyTorch</span>
+								<span class="tech-badge">Cloudflare Workers</span>
+							</div>
+						</section>
+
+						<section class="projects-section">
+							<div class="project-category">
+								<h2 class="section-title">🔬 研究</h2>
+
+								<div class="project-item">
+									<h3><a href="https://doi.org/10.5281/zenodo.23539206" target="_blank">Two-Sex Population Models: A Review of Marriage Functions and an Analysis of a Pair-Formation Model with Juveniles and Logistic Regulation</a></h3>
+									<div class="tags"><span class="tag status">預印本</span><span class="tag">數學生物學</span><span class="tag">族群動力學</span></div>
+									<p class="project-description">回顧兩性人口模型裏向個婚配函數，並分析一隻有幼年個體、單身男女、伴侶、離婚、喪偶搭邏輯斯調節個配對形成模型。文章提出唯一內部平衡點向個存在條件，指出 Hadeler（1993）裏一處需要改正個地方，還說明集中成熟哪能產生長週期個人口循環。</p>
+									<p class="project-links"><a href="https://doi.org/10.5281/zenodo.23539206" target="_blank">DOI: 10.5281/zenodo.23539206</a><a href="https://gitlab.com/geoywang/two-sex-pair-formation" target="_blank">源碼</a></p>
+								</div>
+
+								<div class="project-item">
+									<h3><a href="https://doi.org/10.5281/zenodo.22773064" target="_blank">Kinematic Analysis of Elytra Flight as a Discrete Dynamical System: Energy Injection and Perpetual Motion in Minecraft Physics</a></h3>
+									<div class="tags"><span class="tag status">預印本</span><span class="tag">Applied Math</span><span class="tag">Python</span></div>
+									<p class="project-description">拿 Minecraft 個鞘翅飛行建模成 20 Hz 個離散動力系統，推出滑翔搭爬升兩種狀態個閉式不動點。用解析方法證明 θ = 0° 是全局最優俯仰角，漸近滑翔比正好是 495/49 ≈ 10.102 : 1，還用 Jacobian 特徵值證明了全局線性收斂（ρ = 0.99）。另外分析了弗對稱個動量轉移係數，尋着一個每個循環淨增 3.66 格高度個能量注入機制。</p>
+									<p class="project-links"><a href="https://doi.org/10.5281/zenodo.22773064" target="_blank">DOI: 10.5281/zenodo.22773064</a><a href="https://gitlab.com/geoywang/elytra-flight" target="_blank">源碼</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🌐 網絡搭 Web 工具</h2>
+
+								<div class="project-item">
+									<h3><a href="https://gitlab.com/HydrofluoricAcid/dns" target="_blank">DoH Proxy Pro</a></h3>
+									<div class="tags"><span class="tag">Cloudflare Workers</span><span class="tag">JavaScript</span><span class="tag">DNS-over-HTTPS</span></div>
+									<p class="project-description">部署辣 Cloudflare Workers 浪個高性能 DNS-over-HTTPS 解析器，同時向 10 個上游解析器並行賽跑查詢，再用熔斷、地理選擇搭自適應評分機制降低延遲、提高可靠性。</p>
+									<p class="project-links"><a href="https://gitlab.com/HydrofluoricAcid/dns" target="_blank">源碼</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/google-proxy" target="_blank">Google Proxy</a></h3>
+									<div class="tags"><span class="tag">Vercel</span></div>
+									<p class="project-description">一鍵部署到 Vercel 個 Google 鏡像服務，首屏只有大概 100 kB。</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/google-proxy" target="_blank">源碼</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🛠️ 桌面工具</h2>
+
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/OpenRouter-Chat-Assist" target="_blank">OpenRouter Chat Assist</a></h3>
+									<div class="tags"><span class="tag">Python</span><span class="tag">Tkinter</span></div>
+									<p class="project-description">用 Python/Tkinter 寫個桌面客戶端，通過 OpenRouter API 連各種大語言模型，專門為受限地區個用戶設計。</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/OpenRouter-Chat-Assist" target="_blank">源碼</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/Watermarking-Mini-Program" target="_blank">Watermarking Mini Program</a></h3>
+									<div class="tags"><span class="tag">Python</span></div>
+									<p class="project-description">一隻幫照片加水印個便攜小程序。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/Watermarking-Mini-Program" target="_blank">源碼</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🧩 瀏覽器擴展</h2>
+
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/cBlock" target="_blank">cBlock Origin</a></h3>
+									<div class="tags"><span class="tag">JavaScript</span><span class="tag">WebExtensions</span></div>
+									<p class="project-description">針對中國大陸網絡環境改過個 uBlock Origin：整合自定義過濾列表鏡像（cAssets），處理 CDN 可達性，還根據本地網絡條件優化規則更新搭過濾性能。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/cBlock" target="_blank">源碼</a><a href="https://addons.mozilla.org/firefox/addon/cblock-origin/" target="_blank">附加組件</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/Twitter-IP-Region-Display" target="_blank">Twitter IP Region Display</a></h3>
+									<div class="tags"><span class="tag">JavaScript</span><span class="tag">GraphQL</span><span class="tag">WebExtensions</span></div>
+									<p class="project-description">一隻 Firefox 擴展，攔截 X 內部個 GraphQL API，辣時間線浪直接顯示用戶個 IP 屬地；有 24 鐘頭本地緩存搭自定義標籤，服務器端一眼眼數據也弗收集。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/Twitter-IP-Region-Display" target="_blank">源碼</a><a href="https://addons.mozilla.org/firefox/addon/twitter-ip-region-display/" target="_blank">附加組件</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/Chrome-Simulator" target="_blank">Chrome Simulator</a></h3>
+									<div class="tags"><span class="tag">JavaScript</span><span class="tag">WebExtensions</span></div>
+									<p class="project-description">一隻 Firefox 擴展（fork 自 Chrome Mask），讓只支持 Chrome 個網站辣 Firefox 浪也好正常用。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/Chrome-Simulator" target="_blank">源碼</a><a href="https://addons.mozilla.org/firefox/addon/chrome-simulator/" target="_blank">附加組件</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">📱 Android 應用</h2>
+
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/guandan" target="_blank">Guandan</a></h3>
+									<div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span></div>
+									<p class="project-description">用局域網 Wi-Fi 白相個四人摜蛋，弗需要服務器，也弗需要註冊賬號。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/guandan" target="_blank">源碼</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/carrot" target="_blank">The Last Carrot</a></h3>
+									<div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span></div>
+									<p class="project-description">一隻開心個線道塔防遊戲，已經辣 F-Droid 浪架，呒沒廣告、呒沒追蹤器，也弗要網絡權限。</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/carrot" target="_blank">源碼</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/geminiAssist" target="_blank">GeminiAssist</a></h3>
+									<div class="tags"><span class="tag">Java</span><span class="tag">Android</span></div>
+									<p class="project-description">精簡、加固過個 WebView 封裝，呒沒 Google 移動服務個設備也好用 Google Gemini。</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/geminiAssist" target="_blank">源碼</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🤝 上游貢獻</h2>
+
+								<div class="project-item">
+									<p class="project-description">我經常幫自家用個開源項目提交新功能、修 bug 搭翻譯，包括：</p>
+
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/skyschub/chrome-mask" target="_blank">Chrome Mask</a>
+										</div>
+										<p class="project-description">讓 Firefox「戴隻面具」裝成 Chrome，只支持 Chrome 個網站也好正常用。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/maksimowiczm/find-my-ip" target="_blank">Find my IP</a>
+										</div>
+										<p class="project-description">一隻獲取搭記錄當前 IP 地址個輕量應用。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/justinrdonnelly/bouncer" target="_blank">Bouncer</a>
+										</div>
+										<p class="project-description">幫儂為無線網絡連接挑正確個防火牆區域。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/itagagaki/DeepL-Selected-Text" target="_blank">DeepL Selected Text</a>
+										</div>
+										<p class="project-description">用 DeepL 翻譯選中個文字。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/pintargasper/SmokingTracker" target="_blank">Smoking Tracker</a>
+										</div>
+										<p class="project-description">簡單好用個吸煙記錄應用，幫儂了解自家個習慣搭戒煙進度。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/woheller69/gptAssist" target="_blank">gptAssist</a>
+										</div>
+										<p class="project-description">ChatGPT 個輕量 WebView 封裝，手機浪用起來更適意。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/james-fray/tab-reloader" target="_blank">Tab Reloader</a>
+										</div>
+										<p class="project-description">跨瀏覽器個標籤頁自動刷新擴展。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/insin/control-panel-for-twitter" target="_blank">Control Panel for Twitter</a>
+										</div>
+										<p class="project-description">更好控制 Twitter/X 時間線，還補上缺個功能搭界面改進。</p>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</article>
+			</main>
+		</div>
+	</div>
+</div>
+</body>
+</html>

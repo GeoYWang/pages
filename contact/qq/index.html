@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://play-lh.googleusercontent.com/EyZzBivWAT_6dFOiIZ9JwuyE8duosWa98oDXe46yVUqMMTp07b0JVdmJEYxMrRWXzl1K=w240-h480-rw" type="image/png">
+    <script src="/assets/theme.js"></script>
+    <title>QQ – Why I No Longer Use It</title>
+    <style>
+        /* NYU brand colors, mapped to roles */
+        :root {
+            --page-bg: #eee6f3;
+            --header-bg: #57068c;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(51, 6, 98, 0.08);
+            --heading: #330662;
+            --text: #404040;
+            --muted: #6d6d6d;
+            --accent: #57068c;
+            --accent-soft: #ab82c5;
+            --notice-bg: #eee6f3;
+            --item-bg: #f2f2f2;
+            --item-border: #8900e1;
+            --label-bg: #57068c;
+            --tile-bg: #eee6f3;
+            --tile-hover-bg: #ffffff;
+            --tile-text: #330662;
+            --link: #702b9d;
+            --rule: #d6d6d6;
+        }
+
+        [data-theme="dark"] {
+            --page-bg: #140228;
+            --header-bg: #330662;
+            --card-bg: #1f0439;
+            --card-shadow: rgba(0, 0, 0, 0.4);
+            --heading: #eee6f3;
+            --text: #d6d6d6;
+            --muted: #b8b8b8;
+            --accent: #ab82c5;
+            --accent-soft: #7b5aa6;
+            --notice-bg: #2a0a4b;
+            --item-bg: #2a0a4b;
+            --item-border: #ab82c5;
+            --label-bg: #8900e1;
+            --tile-bg: #2a0a4b;
+            --tile-hover-bg: #3a1463;
+            --tile-text: #eee6f3;
+            --link: #c9a8de;
+            --rule: #3a1463;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .site-header {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1rem 2rem;
+        }
+
+        .site-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .site-header .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 12px var(--card-shadow);
+        }
+
+        .notice {
+            background: var(--notice-bg);
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            margin: 2rem 0;
+        }
+
+        .section h2 {
+            color: var(--heading);
+            font-size: 1.4rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .incident {
+            background: var(--item-bg);
+            border-left: 4px solid var(--item-border);
+            border-radius: 4px;
+            padding: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .incident-label {
+            display: inline-block;
+            background: var(--label-bg);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.1rem 0.6rem;
+            border-radius: 10px;
+            margin-bottom: 0.4rem;
+        }
+
+        .incident h3 {
+            color: var(--heading);
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        ul {
+            padding-left: 1.4rem;
+        }
+
+        li {
+            margin: 0.2rem 0;
+        }
+
+        .contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .contacts a {
+            display: block;
+            background: var(--tile-bg);
+            border: 1px solid transparent;
+            border-radius: 6px;
+            padding: 0.8rem 1rem;
+            color: var(--tile-text);
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .contacts a:hover {
+            border-color: var(--accent-soft);
+            background: var(--tile-hover-bg);
+        }
+
+        .contacts strong {
+            display: block;
+        }
+
+        .contacts span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        ol {
+            padding-left: 1.4rem;
+        }
+
+        .footer {
+            border-top: 1px solid var(--rule);
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .footer p + p {
+            margin-top: 0.5rem;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--link);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 1.5rem;
+            }
+
+            .site-header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>QQ Is Not a Contact Option</h1>
+        <p class="subtitle">Why I no longer use QQ, and how to reach me instead</p>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <div class="notice">
+                <p><strong>Notice:</strong> QQ is no longer provided as a public contact method due to significant
+                    security and privacy concerns, documented below.</p>
+            </div>
+
+            <section class="section">
+                <h2>Summary</h2>
+                <p>A QQ number is one of the most widely leaked identifiers on the Chinese internet, and the client has
+                    a history of reaching far beyond what a messaging app needs. This page lists the specific issues
+                    that led me to stop using it.</p>
+            </section>
+
+            <section class="section">
+                <h2>Documented Incidents</h2>
+
+                <div class="incident">
+                    <span class="incident-label">Data exposure</span>
+                    <h3>QQ numbers as a master key in social-engineering databases</h3>
+                    <ul>
+                        <li>QQ numbers are among the most common lookup keys in “social engineering databases” (社工庫)
+                            circulating on Telegram.</li>
+                        <li>A single QQ number can be linked to the bound phone number, old passwords, real names,
+                            addresses and other accounts, which makes doxxing (開盒) trivial.</li>
+                        <li>In 2013, a leaked database of QQ group memberships (QQ群關係數據) exposed tens of millions of
+                            users and the groups they belonged to — schools, workplaces and families included.</li>
+                    </ul>
+                </div>
+
+                <div class="incident">
+                    <span class="incident-label">Privacy</span>
+                    <h3>Desktop client reading browser history</h3>
+                    <ul>
+                        <li>In early 2021, users found that PC QQ and TIM were reading the local history files of
+                            installed web browsers.</li>
+                        <li>Tencent acknowledged the scanning and said it was used to detect malicious logins, but the
+                            access went well beyond what a chat client needs.</li>
+                    </ul>
+                </div>
+
+                <div class="incident">
+                    <span class="incident-label">User control</span>
+                    <h3>The “difficult decision” (艱難的決定)</h3>
+                    <ul>
+                        <li>During the 2010 “3Q War” (3Q大戰), QQ told users it would stop working on any computer running
+                            360 security software, forcing people to choose between their messenger and their antivirus.</li>
+                        <li>It showed that the client is willing to use its user base as leverage against the users
+                            themselves.</li>
+                    </ul>
+                </div>
+
+                <div class="incident">
+                    <span class="incident-label">Censorship</span>
+                    <h3>Content scanning and surveillance</h3>
+                    <ul>
+                        <li>Files shared in chats and groups are scanned on the server and can be blocked as “violating”
+                            (文件違規) without explanation.</li>
+                        <li>Keyword filtering affects group chats and private messages.</li>
+                        <li>Posts on QQ Zone (QQ空間) can be removed retroactively.</li>
+                        <li>Accounts and groups can be frozen (凍結) or dissolved without a meaningful appeal process.</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 1.5rem;">In addition:</p>
+                <ul>
+                    <li>Standard chats have no end-to-end encryption; messages and files are stored on Tencent's servers.</li>
+                    <li>Real-name phone binding ties every account to a legal identity.</li>
+                    <li>Account data is shared across Tencent products, including WeChat.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>How to Reach Me Instead</h2>
+                <div class="contacts">
+                    <a href="/contact/signal/" target="_blank"><strong>Signal</strong><span>Open link</span></a>
+                    <a href="/contact/olvid/" target="_blank"><strong>Olvid</strong><span>Scan the QR code</span></a>
+                    <a href="/contact/session/" target="_blank"><strong>Session</strong><span>Scan the QR code</span></a>
+                    <a href="/contact/telegram/" target="_blank"><strong>Telegram</strong><span>Open link</span></a>
+                    <a href="/contact/email/" target="_blank"><strong>E-mail</strong><span>OpenPGP</span></a>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>If You Still Use QQ</h2>
+                <ol>
+                    <li>Hide your QQ number from search and turn off “find me by phone number”.</li>
+                    <li>Never reuse your QQ password anywhere else, and enable login protection.</li>
+                    <li>Keep the desktop client off computers you use for anything sensitive.</li>
+                    <li>Lock down QQ Zone and remove old posts that reveal personal details.</li>
+                    <li>Leave groups you no longer need; group membership itself is personal data.</li>
+                    <li>Consider migrating to another platform entirely.</li>
+                </ol>
+            </section>
+
+            <div class="footer">
+                <p>Last updated: 2026-09-22</p>
+                <p>For verification, please refer to independent security research and publicly available breach
+                    reports.</p>
+                <p><strong>Privacy is not about having something to hide; it's about having something to protect.</strong></p>
+                <a class="back" href="/">← Back to home</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

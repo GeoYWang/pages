@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Geo Wang – Étudiant en mathématiques</title>
+	<link rel="icon" href="https://play-lh.googleusercontent.com/EyZzBivWAT_6dFOiIZ9JwuyE8duosWa98oDXe46yVUqMMTp07b0JVdmJEYxMrRWXzl1K=w240-h480-rw" type="image/png">
+	<script src="/assets/theme.js"></script>
+	<style>
+        /* NYU brand colors, mapped to roles */
+        :root {
+            --page-bg: #eee6f3;
+            --header-bg: #57068c;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(51, 6, 98, 0.08);
+            --heading: #330662;
+            --text: #404040;
+            --accent: #57068c;
+            --accent-soft: #ab82c5;
+            --item-bg: #f2f2f2;
+            --item-border: #8900e1;
+            --link: #702b9d;
+            --link-hover: #57068c;
+            --chip-bg: #eee6f3;
+            --chip-text: #330662;
+            --status-bg: #57068c;
+            --contrib-bg: #ffffff;
+            --quote: #7b5aa6;
+            --muted: #6d6d6d;
+        }
+
+        [data-theme="dark"] {
+            --page-bg: #140228;
+            --header-bg: #330662;
+            --card-bg: #1f0439;
+            --card-shadow: rgba(0, 0, 0, 0.4);
+            --heading: #eee6f3;
+            --text: #d6d6d6;
+            --accent: #ab82c5;
+            --accent-soft: #7b5aa6;
+            --item-bg: #2a0a4b;
+            --item-border: #ab82c5;
+            --link: #c9a8de;
+            --link-hover: #eee6f3;
+            --chip-bg: #3a1463;
+            --chip-text: #eee6f3;
+            --status-bg: #8900e1;
+            --contrib-bg: #1f0439;
+            --quote: #ab82c5;
+            --muted: #b8b8b8;
+        }
+
+        body {
+            background-color: var(--page-bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+        }
+
+        .site-header {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .custom-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.85);
+        }
+
+        .site-title {
+            font-size: 2rem;
+            margin: 1rem 0 0.25rem;
+        }
+
+        .site-title a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .site-reading {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 0 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .site-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        .lang-nav {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .lang-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin: 0 0.4rem;
+        }
+
+        .lang-nav a:hover,
+        .lang-nav a[aria-current="page"] {
+            color: #ffffff;
+        }
+
+        .lang-nav a[aria-current="page"] {
+            border-bottom: 2px solid #ab82c5;
+        }
+
+        .content-area {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hentry {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px var(--card-shadow);
+        }
+
+        .entry-header h1 {
+            color: var(--heading);
+            font-size: 2rem;
+            margin: 0 0 1.5rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .intro-section {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .intro-section a {
+            color: var(--link);
+            font-weight: 600;
+        }
+
+        .quote {
+            color: var(--quote);
+            font-style: italic;
+            margin: 0 0 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-soft);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-badge {
+            background-color: var(--chip-bg);
+            color: var(--chip-text);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .projects-section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            color: var(--heading);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .project-category {
+            margin-bottom: 2rem;
+        }
+
+        .project-item {
+            margin: 1.5rem 0;
+            padding: 1.2rem;
+            background-color: var(--item-bg);
+            border-left: 4px solid var(--item-border);
+            border-radius: 4px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px var(--card-shadow);
+        }
+
+        .project-item h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .project-item a {
+            color: var(--link);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-item a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        .project-description {
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        .sub-project-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .contribution-item {
+            margin: 1rem 0 1rem 2rem;
+            padding: 0.8rem;
+            background-color: var(--contrib-bg);
+            border-left: 3px solid var(--accent-soft);
+            border-radius: 3px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 0.3rem 0 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--chip-bg);
+            color: var(--chip-text);
+            padding: 0.15rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .tag.status {
+            background-color: var(--status-bg);
+            color: #ffffff;
+        }
+
+        .project-links {
+            font-size: 0.9rem;
+            margin: 0.3rem 0 0;
+        }
+
+        .project-links a + a::before {
+            content: "·";
+            color: var(--muted);
+            margin: 0 0.5rem;
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hentry {
+                padding: 1.5rem;
+            }
+
+            .entry-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .intro-section {
+                font-size: 1rem;
+            }
+
+            .contribution-item {
+                margin-left: 1rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header">
+		<a href="/" class="custom-logo-link" rel="home">
+			<img src="/geo.png" class="custom-logo" alt="Geo Wang" />
+		</a>
+		<p class="site-title">
+			<a href="/" rel="home">Geo Wang</a>
+		</p>
+		<p class="site-description">Étudiant en mathématiques</p>
+		<nav class="lang-nav">
+			<a href="/en/" lang="en">English</a>
+			<a href="/zh-TW/" lang="zh-TW">中文</a>
+			<a href="/wuu/" lang="wuu-Hant">上海話</a>
+			<a href="/ja/" lang="ja">日本語</a>
+			<a href="/fr/" lang="fr" aria-current="page">Français</a>
+		</nav>
+	</header>
+
+	<div id="content" class="site-content">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main">
+				<article class="hentry">
+					<header class="entry-header">
+						<h1 class="entry-title">À propos de moi & projets open source</h1>
+					</header>
+
+					<div class="entry-content">
+						<section class="intro-section">
+							<p class="quote">Se connaître soi-même est le commencement de toute sagesse. — Aristote</p>
+							<p>Je m'appelle <strong>Geo Wang</strong>, originaire de Shanghai, étudiant en mathématiques à NYU. J'aime concevoir des outils qui résolvent des problèmes concrets, et je développe, maintiens et publie des applications Android open source pour l'écosystème F-Droid. En dehors des maths, je m'intéresse aussi à la chimie.</p>
+							<p style="margin-top: 1.5rem;">En dehors du code, j'ai un goût prononcé pour la poésie chinoise classique (voir mes <a href="/poems/" target="_blank">poèmes</a>) et je suis un disciple de Friedrich Hayek et de l'école autrichienne d'économie (voir mon <a href="https://blog.lanticy.dpdns.org" target="_blank">blog</a>).</p>
+
+							<div class="tech-stack">
+								<span class="tech-badge">Python</span>
+								<span class="tech-badge">C++</span>
+								<span class="tech-badge">JavaScript</span>
+								<span class="tech-badge">Kotlin</span>
+								<span class="tech-badge">Java</span>
+								<span class="tech-badge">HTML/CSS</span>
+								<span class="tech-badge">LaTeX</span>
+								<span class="tech-badge">PyTorch</span>
+								<span class="tech-badge">Cloudflare Workers</span>
+							</div>
+						</section>
+
+						<section class="projects-section">
+							<div class="project-category">
+								<h2 class="section-title">🔬 Recherche</h2>
+
+								<div class="project-item">
+									<h3><a href="https://doi.org/10.5281/zenodo.23539206" target="_blank">Two-Sex Population Models: A Review of Marriage Functions and an Analysis of a Pair-Formation Model with Juveniles and Logistic Regulation</a></h3>
+									<div class="tags"><span class="tag status">Prépublication</span><span class="tag">Biologie mathématique</span><span class="tag">Dynamique des populations</span></div>
+									<p class="project-description">Passe en revue les fonctions de nuptialité des modèles de population à deux sexes et analyse un modèle de formation des couples avec juvéniles, célibataires, couples, divorce, veuvage et régulation logistique. Établit les conditions d'existence d'un équilibre intérieur unique, corrige Hadeler (1993) et montre comment une maturation concentrée peut engendrer de longs cycles démographiques.</p>
+									<p class="project-links"><a href="https://doi.org/10.5281/zenodo.23539206" target="_blank">DOI: 10.5281/zenodo.23539206</a><a href="https://gitlab.com/geoywang/two-sex-pair-formation" target="_blank">Code source</a></p>
+								</div>
+
+								<div class="project-item">
+									<h3><a href="https://doi.org/10.5281/zenodo.22773064" target="_blank">Kinematic Analysis of Elytra Flight as a Discrete Dynamical System: Energy Injection and Perpetual Motion in Minecraft Physics</a></h3>
+									<div class="tags"><span class="tag status">Prépublication</span><span class="tag">Applied Math</span><span class="tag">Python</span></div>
+									<p class="project-description">Modélisation du vol en élytres de Minecraft comme un système dynamique discret à 20 Hz, avec des points fixes sous forme close pour le plané et la montée. Démonstration analytique que θ = 0° est l'angle de tangage optimal global, avec un rapport de plané asymptotique exact de 495/49 ≈ 10,102 : 1, et preuve de la convergence linéaire globale (ρ = 0,99) via les valeurs propres de la jacobienne. Les coefficients asymétriques de transfert de quantité de mouvement révèlent une injection nette d'énergie de +3,66 blocs d'altitude par cycle.</p>
+									<p class="project-links"><a href="https://doi.org/10.5281/zenodo.22773064" target="_blank">DOI: 10.5281/zenodo.22773064</a><a href="https://gitlab.com/geoywang/elytra-flight" target="_blank">Code source</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🌐 Outils web & réseau</h2>
+
+								<div class="project-item">
+									<h3><a href="https://gitlab.com/HydrofluoricAcid/dns" target="_blank">DoH Proxy Pro</a></h3>
+									<div class="tags"><span class="tag">Cloudflare Workers</span><span class="tag">JavaScript</span><span class="tag">DNS-over-HTTPS</span></div>
+									<p class="project-description">Un résolveur DNS-over-HTTPS haute performance sur Cloudflare Workers, qui met en concurrence 10 résolveurs en amont en parallèle, avec disjoncteur, sélection géographique et score adaptatif pour réduire la latence et fiabiliser les résolutions.</p>
+									<p class="project-links"><a href="https://gitlab.com/HydrofluoricAcid/dns" target="_blank">Code source</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/google-proxy" target="_blank">Google Proxy</a></h3>
+									<div class="tags"><span class="tag">Vercel</span></div>
+									<p class="project-description">Un service miroir de Google déployable en un clic sur Vercel, avec un premier affichage d'environ 100 ko.</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/google-proxy" target="_blank">Code source</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🛠️ Outils de bureau</h2>
+
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/OpenRouter-Chat-Assist" target="_blank">OpenRouter Chat Assist</a></h3>
+									<div class="tags"><span class="tag">Python</span><span class="tag">Tkinter</span></div>
+									<p class="project-description">Un client de bureau Python/Tkinter qui se connecte à divers LLM via l'API OpenRouter, conçu pour les utilisateurs des régions restreintes.</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/OpenRouter-Chat-Assist" target="_blank">Code source</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/Watermarking-Mini-Program" target="_blank">Watermarking Mini Program</a></h3>
+									<div class="tags"><span class="tag">Python</span></div>
+									<p class="project-description">Une application portable pour ajouter des filigranes aux photos.</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/Watermarking-Mini-Program" target="_blank">Code source</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🧩 Extensions de navigateur</h2>
+
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/cBlock" target="_blank">cBlock Origin</a></h3>
+									<div class="tags"><span class="tag">JavaScript</span><span class="tag">WebExtensions</span></div>
+									<p class="project-description">uBlock Origin adapté aux réseaux de Chine continentale : miroirs de listes de filtres personnalisés (cAssets), gestion de l'accessibilité des CDN, mise à jour des règles et performances de filtrage optimisées pour les conditions locales.</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/cBlock" target="_blank">Code source</a><a href="https://addons.mozilla.org/firefox/addon/cblock-origin/" target="_blank">Module</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/Twitter-IP-Region-Display" target="_blank">Twitter IP Region Display</a></h3>
+									<div class="tags"><span class="tag">JavaScript</span><span class="tag">GraphQL</span><span class="tag">WebExtensions</span></div>
+									<p class="project-description">Une extension Firefox qui intercepte l'API GraphQL interne de X pour afficher la région IP de chaque utilisateur directement dans le fil, avec un cache local de 24 heures, des libellés personnalisés et aucune collecte de données côté serveur.</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/Twitter-IP-Region-Display" target="_blank">Code source</a><a href="https://addons.mozilla.org/firefox/addon/twitter-ip-region-display/" target="_blank">Module</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/Chrome-Simulator" target="_blank">Chrome Simulator</a></h3>
+									<div class="tags"><span class="tag">JavaScript</span><span class="tag">WebExtensions</span></div>
+									<p class="project-description">Un module Firefox (fork de Chrome Mask) qui permet aux sites réservés à Chrome de fonctionner correctement sous Firefox.</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/Chrome-Simulator" target="_blank">Code source</a><a href="https://addons.mozilla.org/firefox/addon/chrome-simulator/" target="_blank">Module</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">📱 Applications Android</h2>
+
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/guandan" target="_blank">Guandan</a></h3>
+									<div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span></div>
+									<p class="project-description">Le jeu de cartes chinois Guandan à quatre joueurs, en Wi-Fi local — sans serveur ni compte.</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/guandan" target="_blank">Code source</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/carrot" target="_blank">The Last Carrot</a></h3>
+									<div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span></div>
+									<p class="project-description">Un joyeux jeu de tower defense en couloirs, publié sur F-Droid, sans publicité, sans traqueurs et sans permission réseau.</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/carrot" target="_blank">Code source</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/geminiAssist" target="_blank">GeminiAssist</a></h3>
+									<div class="tags"><span class="tag">Java</span><span class="tag">Android</span></div>
+									<p class="project-description">Une enveloppe WebView minimale et renforcée qui permet d'utiliser Google Gemini sur les appareils dépourvus des services Google Mobile.</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/geminiAssist" target="_blank">Code source</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🤝 Contributions en amont</h2>
+
+								<div class="project-item">
+									<p class="project-description">Je propose des fonctionnalités, des corrections de bugs et des traductions aux projets open source que j'utilise, notamment :</p>
+
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/skyschub/chrome-mask" target="_blank">Chrome Mask</a>
+										</div>
+										<p class="project-description">Fait porter un masque à Firefox pour qu'il ressemble à Chrome auprès des sites qui refusent de fonctionner autrement.</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/maksimowiczm/find-my-ip" target="_blank">Find my IP</a>
+										</div>
+										<p class="project-description">Une application légère qui récupère et enregistre votre adresse IP actuelle.</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/justinrdonnelly/bouncer" target="_blank">Bouncer</a>
+										</div>
+										<p class="project-description">Aide à choisir la bonne zone de pare-feu pour les connexions sans fil.</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/itagagaki/DeepL-Selected-Text" target="_blank">DeepL Selected Text</a>
+										</div>
+										<p class="project-description">Traduire le texte sélectionné avec DeepL.</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/pintargasper/SmokingTracker" target="_blank">Smoking Tracker</a>
+										</div>
+										<p class="project-description">Une application simple pour suivre sa consommation de tabac et ses progrès vers l'arrêt.</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/woheller69/gptAssist" target="_blank">gptAssist</a>
+										</div>
+										<p class="project-description">Une simple enveloppe WebView pour ChatGPT, avec une meilleure expérience mobile.</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/james-fray/tab-reloader" target="_blank">Tab Reloader</a>
+										</div>
+										<p class="project-description">Une extension multi-navigateurs pour recharger automatiquement les onglets.</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/insin/control-panel-for-twitter" target="_blank">Control Panel for Twitter</a>
+										</div>
+										<p class="project-description">Plus de contrôle sur la timeline Twitter/X, avec des fonctionnalités manquantes et des améliorations d'interface.</p>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</article>
+			</main>
+		</div>
+	</div>
+</div>
+</body>
+</html>

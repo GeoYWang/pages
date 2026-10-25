@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://play-lh.googleusercontent.com/EyZzBivWAT_6dFOiIZ9JwuyE8duosWa98oDXe46yVUqMMTp07b0JVdmJEYxMrRWXzl1K=w240-h480-rw" type="image/png">
+    <script src="/assets/theme.js"></script>
+    <title>Email – Geo Wang</title>
+    <style>
+        /* NYU brand colors, mapped to roles */
+        :root {
+            --page-bg: #eee6f3;
+            --header-bg: #57068c;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(51, 6, 98, 0.08);
+            --heading: #330662;
+            --text: #404040;
+            --muted: #6d6d6d;
+            --accent: #57068c;
+            --accent-soft: #ab82c5;
+            --notice-bg: #eee6f3;
+            --item-bg: #f2f2f2;
+            --item-border: #8900e1;
+            --label-bg: #57068c;
+            --tile-bg: #eee6f3;
+            --tile-hover-bg: #ffffff;
+            --tile-text: #330662;
+            --link: #702b9d;
+            --rule: #d6d6d6;
+        }
+
+        [data-theme="dark"] {
+            --page-bg: #140228;
+            --header-bg: #330662;
+            --card-bg: #1f0439;
+            --card-shadow: rgba(0, 0, 0, 0.4);
+            --heading: #eee6f3;
+            --text: #d6d6d6;
+            --muted: #b8b8b8;
+            --accent: #ab82c5;
+            --accent-soft: #7b5aa6;
+            --notice-bg: #2a0a4b;
+            --item-bg: #2a0a4b;
+            --item-border: #ab82c5;
+            --label-bg: #8900e1;
+            --tile-bg: #2a0a4b;
+            --tile-hover-bg: #3a1463;
+            --tile-text: #eee6f3;
+            --link: #c9a8de;
+            --rule: #3a1463;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .site-header {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1rem 2rem;
+        }
+
+        .site-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .site-header .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 12px var(--card-shadow);
+        }
+
+        .notice {
+            background: var(--notice-bg);
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            margin: 2rem 0;
+        }
+
+        .section h2 {
+            color: var(--heading);
+            font-size: 1.4rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .incident {
+            background: var(--item-bg);
+            border-left: 4px solid var(--item-border);
+            border-radius: 4px;
+            padding: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .incident-label {
+            display: inline-block;
+            background: var(--label-bg);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.1rem 0.6rem;
+            border-radius: 10px;
+            margin-bottom: 0.4rem;
+        }
+
+        .incident h3 {
+            color: var(--heading);
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        ul {
+            padding-left: 1.4rem;
+        }
+
+        li {
+            margin: 0.2rem 0;
+        }
+
+        .contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .contacts a {
+            display: block;
+            background: var(--tile-bg);
+            border: 1px solid transparent;
+            border-radius: 6px;
+            padding: 0.8rem 1rem;
+            color: var(--tile-text);
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .contacts a:hover {
+            border-color: var(--accent-soft);
+            background: var(--tile-hover-bg);
+        }
+
+        .contacts strong {
+            display: block;
+        }
+
+        .contacts span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        ol {
+            padding-left: 1.4rem;
+        }
+
+        .footer {
+            border-top: 1px solid var(--rule);
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .footer p + p {
+            margin-top: 0.5rem;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--link);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 1.5rem;
+            }
+
+            .site-header h1 {
+                font-size: 1.6rem;
+            }
+        }
+        .address {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .address a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .address a:hover {
+            text-decoration: underline;
+        }
+
+        .fingerprint {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 1.05rem;
+            letter-spacing: 0.05em;
+            color: var(--heading);
+            word-break: break-word;
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        .key-actions {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .button {
+            font: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--accent-soft);
+            background: var(--tile-bg);
+            color: var(--tile-text);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: var(--tile-hover-bg);
+        }
+
+        pre.key {
+            background: var(--item-bg);
+            border-left: 4px solid var(--item-border);
+            border-radius: 4px;
+            padding: 1rem;
+            font-size: 0.75rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            max-height: 16rem;
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.9em;
+            background: var(--item-bg);
+            padding: 0.1rem 0.35rem;
+            border-radius: 4px;
+        }
+
+        .steps li + li {
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Email</h1>
+        <p class="subtitle">Plain email is fine. Encrypted is welcome.</p>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <section class="section" style="margin-top: 0;">
+                <h2>Address</h2>
+                <p class="address"><a href="mailto:geo.wang@nyu.edu">geo.wang@nyu.edu</a></p>
+            </section>
+
+            <section class="section">
+                <h2>OpenPGP Key</h2>
+                <p class="fingerprint">C424 31A9 69D8 B71F 87E1&nbsp; B883 B742 1BA8 D3F9 BCBA</p>
+                <p class="meta">RSA-3072 · created 2026-04-25 · Geo Wang &lt;geo.wang@nyu.edu&gt;</p>
+
+                <div class="key-actions" style="margin-top: 1rem;">
+                    <a class="button" href="geo.asc" download>Download geo.asc</a>
+                    <button class="button" type="button" id="copyBtn">Copy key</button>
+                </div>
+                <pre class="key" id="key">-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+=+r1P
+-----END PGP PUBLIC KEY BLOCK-----</pre>
+            </section>
+
+            <section class="section">
+                <h2>Sending Me Encrypted Mail</h2>
+                <ol class="steps">
+                    <li><strong>Thunderbird</strong> has OpenPGP built in since version 78, so no add-on is needed.
+                        Download <code>geo.asc</code>, open <em>Tools → OpenPGP Key Manager</em>, then
+                        <em>File → Import Public Key(s) From File</em>. When writing to me, turn on
+                        <em>Encrypt</em> in the compose window.</li>
+                    <li><strong>Command line:</strong> <code>gpg --import geo.asc</code>, then
+                        <code>gpg --fingerprint geo.wang@nyu.edu</code>.</li>
+                    <li>Other clients such as Kleopatra or GPG Suite can import the same file.</li>
+                </ol>
+                <p style="margin-top: 1rem;">Whichever you use, check that the fingerprint matches the one above
+                    before trusting the key.</p>
+            </section>
+
+            <div class="footer">
+                <a class="back" href="/">← Back to home</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('copyBtn').addEventListener('click', function () {
+            var btn = this;
+            navigator.clipboard.writeText(document.getElementById('key').textContent + '\n').then(function () {
+                btn.textContent = 'Copied ✓';
+                setTimeout(function () { btn.textContent = 'Copy key'; }, 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>王 禹嘉（おう うか）– 数学専攻の学生</title>
+	<link rel="icon" href="https://play-lh.googleusercontent.com/EyZzBivWAT_6dFOiIZ9JwuyE8duosWa98oDXe46yVUqMMTp07b0JVdmJEYxMrRWXzl1K=w240-h480-rw" type="image/png">
+	<script src="/assets/theme.js"></script>
+	<style>
+        /* NYU brand colors, mapped to roles */
+        :root {
+            --page-bg: #eee6f3;
+            --header-bg: #57068c;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(51, 6, 98, 0.08);
+            --heading: #330662;
+            --text: #404040;
+            --accent: #57068c;
+            --accent-soft: #ab82c5;
+            --item-bg: #f2f2f2;
+            --item-border: #8900e1;
+            --link: #702b9d;
+            --link-hover: #57068c;
+            --chip-bg: #eee6f3;
+            --chip-text: #330662;
+            --status-bg: #57068c;
+            --contrib-bg: #ffffff;
+            --quote: #7b5aa6;
+            --muted: #6d6d6d;
+        }
+
+        [data-theme="dark"] {
+            --page-bg: #140228;
+            --header-bg: #330662;
+            --card-bg: #1f0439;
+            --card-shadow: rgba(0, 0, 0, 0.4);
+            --heading: #eee6f3;
+            --text: #d6d6d6;
+            --accent: #ab82c5;
+            --accent-soft: #7b5aa6;
+            --item-bg: #2a0a4b;
+            --item-border: #ab82c5;
+            --link: #c9a8de;
+            --link-hover: #eee6f3;
+            --chip-bg: #3a1463;
+            --chip-text: #eee6f3;
+            --status-bg: #8900e1;
+            --contrib-bg: #1f0439;
+            --quote: #ab82c5;
+            --muted: #b8b8b8;
+        }
+
+        body {
+            background-color: var(--page-bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+        }
+
+        .site-header {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .custom-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.85);
+        }
+
+        .site-title {
+            font-size: 2rem;
+            margin: 1rem 0 0.25rem;
+        }
+
+        .site-title a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .site-reading {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 0 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .site-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        .lang-nav {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .lang-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin: 0 0.4rem;
+        }
+
+        .lang-nav a:hover,
+        .lang-nav a[aria-current="page"] {
+            color: #ffffff;
+        }
+
+        .lang-nav a[aria-current="page"] {
+            border-bottom: 2px solid #ab82c5;
+        }
+
+        .content-area {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hentry {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px var(--card-shadow);
+        }
+
+        .entry-header h1 {
+            color: var(--heading);
+            font-size: 2rem;
+            margin: 0 0 1.5rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .intro-section {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .intro-section a {
+            color: var(--link);
+            font-weight: 600;
+        }
+
+        .quote {
+            color: var(--quote);
+            font-style: italic;
+            margin: 0 0 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-soft);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-badge {
+            background-color: var(--chip-bg);
+            color: var(--chip-text);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .projects-section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            color: var(--heading);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .project-category {
+            margin-bottom: 2rem;
+        }
+
+        .project-item {
+            margin: 1.5rem 0;
+            padding: 1.2rem;
+            background-color: var(--item-bg);
+            border-left: 4px solid var(--item-border);
+            border-radius: 4px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px var(--card-shadow);
+        }
+
+        .project-item h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .project-item a {
+            color: var(--link);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-item a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        .project-description {
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        .sub-project-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .contribution-item {
+            margin: 1rem 0 1rem 2rem;
+            padding: 0.8rem;
+            background-color: var(--contrib-bg);
+            border-left: 3px solid var(--accent-soft);
+            border-radius: 3px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 0.3rem 0 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--chip-bg);
+            color: var(--chip-text);
+            padding: 0.15rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .tag.status {
+            background-color: var(--status-bg);
+            color: #ffffff;
+        }
+
+        .project-links {
+            font-size: 0.9rem;
+            margin: 0.3rem 0 0;
+        }
+
+        .project-links a + a::before {
+            content: "·";
+            color: var(--muted);
+            margin: 0 0.5rem;
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hentry {
+                padding: 1.5rem;
+            }
+
+            .entry-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .intro-section {
+                font-size: 1rem;
+            }
+
+            .contribution-item {
+                margin-left: 1rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header">
+		<a href="/" class="custom-logo-link" rel="home">
+			<img src="/geo.png" class="custom-logo" alt="王 禹嘉" />
+		</a>
+		<p class="site-title">
+			<a href="/" rel="home">王 禹嘉</a>
+		</p>
+		<p class="site-reading">おう うか</p>
+		<p class="site-description">数学専攻の学生</p>
+		<nav class="lang-nav">
+			<a href="/en/" lang="en">English</a>
+			<a href="/zh-TW/" lang="zh-TW">中文</a>
+			<a href="/wuu/" lang="wuu-Hant">上海話</a>
+			<a href="/ja/" lang="ja" aria-current="page">日本語</a>
+			<a href="/fr/" lang="fr">Français</a>
+		</nav>
+	</header>
+
+	<div id="content" class="site-content">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main">
+				<article class="hentry">
+					<header class="entry-header">
+						<h1 class="entry-title">自己紹介とオープンソースプロジェクト</h1>
+					</header>
+
+					<div class="entry-content">
+						<section class="intro-section">
+							<p class="quote">自分を知ることは、すべての知恵の始まりである。——アリストテレス</p>
+							<p><ruby>王<rt>おう</rt>禹<rt>う</rt>嘉<rt>か</rt></ruby>と申します。中国の上海出身で、現在はニューヨーク大学で数学を専攻しています。実社会の課題を解決するツールづくりが好きで、F-Droid 向けのオープンソース Android アプリの開発・保守・公開も行っています。数学のほかに、化学にも興味を持っています。</p>
+							<p style="margin-top: 1.5rem;">プログラミング以外では、中国の古典詩に強い関心があり（私の<a href="/poems/" target="_blank">詩作</a>をご覧ください）、フリードリヒ・ハイエクとオーストリア学派経済学の支持者でもあります（私の<a href="https://blog.lanticy.dpdns.org" target="_blank">ブログ</a>をご覧ください）。</p>
+							<p style="margin-top: 1.5rem;">お会いできて嬉しいです！つながりを保ちましょう！⚡️</p>
+
+							<div class="tech-stack">
+								<span class="tech-badge">Python</span>
+								<span class="tech-badge">C++</span>
+								<span class="tech-badge">JavaScript</span>
+								<span class="tech-badge">Kotlin</span>
+								<span class="tech-badge">Java</span>
+								<span class="tech-badge">HTML/CSS</span>
+								<span class="tech-badge">LaTeX</span>
+								<span class="tech-badge">PyTorch</span>
+								<span class="tech-badge">Cloudflare Workers</span>
+							</div>
+						</section>
+
+						<section class="projects-section">
+							<div class="project-category">
+								<h2 class="section-title">🔬 研究</h2>
+
+								<div class="project-item">
+									<h3><a href="https://doi.org/10.5281/zenodo.23539206" target="_blank">Two-Sex Population Models: A Review of Marriage Functions and an Analysis of a Pair-Formation Model with Juveniles and Logistic Regulation</a></h3>
+									<div class="tags"><span class="tag status">プレプリント</span><span class="tag">数理生物学</span><span class="tag">個体群動態</span></div>
+									<p class="project-description">二性人口モデルにおける婚姻関数を概観し、幼年個体、独身者、夫婦、離婚、死別、ロジスティック制御を含むペア形成モデルを解析しました。一意な内部平衡の存在条件を導き、Hadeler（1993）の修正点を示すとともに、成熟時期の集中が長期の人口循環を生み得ることを明らかにします。</p>
+									<p class="project-links"><a href="https://doi.org/10.5281/zenodo.23539206" target="_blank">DOI: 10.5281/zenodo.23539206</a><a href="https://gitlab.com/geoywang/two-sex-pair-formation" target="_blank">ソース</a></p>
+								</div>
+
+								<div class="project-item">
+									<h3><a href="https://doi.org/10.5281/zenodo.22773064" target="_blank">Kinematic Analysis of Elytra Flight as a Discrete Dynamical System: Energy Injection and Perpetual Motion in Minecraft Physics</a></h3>
+									<div class="tags"><span class="tag status">プレプリント</span><span class="tag">Applied Math</span><span class="tag">Python</span></div>
+									<p class="project-description">Minecraft のエリトラ飛行を 20 Hz の離散力学系としてモデル化し、滑空と上昇の両状態について閉形式の不動点を導出しました。θ = 0° が大域的に最適なピッチ角であり、漸近滑空比がちょうど 495/49 ≈ 10.102 : 1 となることを解析的に証明し、ヤコビ行列の固有値から大域的な線形収束（ρ = 0.99）を示しました。さらに非対称な運動量伝達係数を分析し、1 サイクルあたり +3.66 ブロックの高度を得るエネルギー注入メカニズムを明らかにしました。</p>
+									<p class="project-links"><a href="https://doi.org/10.5281/zenodo.22773064" target="_blank">DOI: 10.5281/zenodo.22773064</a><a href="https://gitlab.com/geoywang/elytra-flight" target="_blank">ソース</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🌐 ネットワーク & Web ツール</h2>
+
+								<div class="project-item">
+									<h3><a href="https://gitlab.com/HydrofluoricAcid/dns" target="_blank">DoH Proxy Pro</a></h3>
+									<div class="tags"><span class="tag">Cloudflare Workers</span><span class="tag">JavaScript</span><span class="tag">DNS-over-HTTPS</span></div>
+									<p class="project-description">Cloudflare Workers 上で動作する高性能な DNS-over-HTTPS リゾルバ。10 個の上流リゾルバに並列でクエリを競わせ、サーキットブレーカー、地理的選択、適応的スコアリングによってレイテンシを抑え、名前解決の信頼性を高めます。</p>
+									<p class="project-links"><a href="https://gitlab.com/HydrofluoricAcid/dns" target="_blank">ソース</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/google-proxy" target="_blank">Google Proxy</a></h3>
+									<div class="tags"><span class="tag">Vercel</span></div>
+									<p class="project-description">Vercel にワンクリックでデプロイできる Google ミラーサービス。初回描画は約 100 kB です。</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/google-proxy" target="_blank">ソース</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🛠️ デスクトップツール</h2>
+
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/OpenRouter-Chat-Assist" target="_blank">OpenRouter Chat Assist</a></h3>
+									<div class="tags"><span class="tag">Python</span><span class="tag">Tkinter</span></div>
+									<p class="project-description">OpenRouter API を通じてさまざまな LLM に接続できる Python/Tkinter 製のデスクトップクライアント。利用制限のある地域のユーザー向けに開発しました。</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/OpenRouter-Chat-Assist" target="_blank">ソース</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/Watermarking-Mini-Program" target="_blank">Watermarking Mini Program</a></h3>
+									<div class="tags"><span class="tag">Python</span></div>
+									<p class="project-description">写真に透かしを入れるポータブルアプリ。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/Watermarking-Mini-Program" target="_blank">ソース</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🧩 ブラウザ拡張機能</h2>
+
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/cBlock" target="_blank">cBlock Origin</a></h3>
+									<div class="tags"><span class="tag">JavaScript</span><span class="tag">WebExtensions</span></div>
+									<p class="project-description">uBlock Origin を中国本土のネットワーク向けに調整したもの。独自のフィルターリストミラー（cAssets）と CDN の到達性対策を組み込み、現地のネットワーク環境に合わせてルール更新とフィルタリング性能を最適化しています。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/cBlock" target="_blank">ソース</a><a href="https://addons.mozilla.org/firefox/addon/cblock-origin/" target="_blank">アドオン</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/Twitter-IP-Region-Display" target="_blank">Twitter IP Region Display</a></h3>
+									<div class="tags"><span class="tag">JavaScript</span><span class="tag">GraphQL</span><span class="tag">WebExtensions</span></div>
+									<p class="project-description">X の内部 GraphQL API をインターセプトし、タイムライン上にユーザーの IP 地域をインライン表示する Firefox 拡張機能。24 時間のローカルキャッシュと独自ラベル機能を備え、サーバー側でのデータ収集は一切ありません。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/Twitter-IP-Region-Display" target="_blank">ソース</a><a href="https://addons.mozilla.org/firefox/addon/twitter-ip-region-display/" target="_blank">アドオン</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/Chrome-Simulator" target="_blank">Chrome Simulator</a></h3>
+									<div class="tags"><span class="tag">JavaScript</span><span class="tag">WebExtensions</span></div>
+									<p class="project-description">Chrome 専用サイトを Firefox で正しく動作させる Firefox アドオン（Chrome Mask のフォーク）。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/Chrome-Simulator" target="_blank">ソース</a><a href="https://addons.mozilla.org/firefox/addon/chrome-simulator/" target="_blank">アドオン</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">📱 Android アプリ</h2>
+
+								<div class="project-item">
+									<h3><a href="https://codeberg.org/lanticy/guandan" target="_blank">Guandan</a></h3>
+									<div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span></div>
+									<p class="project-description">ローカル Wi-Fi で遊べる 4 人用の中国のトランプゲーム「掼蛋（グワンダン）」。サーバーもアカウントも不要です。</p>
+									<p class="project-links"><a href="https://codeberg.org/lanticy/guandan" target="_blank">ソース</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/carrot" target="_blank">The Last Carrot</a></h3>
+									<div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span></div>
+									<p class="project-description">F-Droid で公開している、明るいレーン型タワーディフェンスゲーム。広告・トラッカー・ネットワーク権限は一切ありません。</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/carrot" target="_blank">ソース</a></p>
+								</div>
+								<div class="project-item">
+									<h3><a href="https://github.com/AcideFluorhydrique/geminiAssist" target="_blank">GeminiAssist</a></h3>
+									<div class="tags"><span class="tag">Java</span><span class="tag">Android</span></div>
+									<p class="project-description">Google モバイルサービスのない端末でも Google Gemini を使える、最小限かつ堅牢化された WebView ラッパー。</p>
+									<p class="project-links"><a href="https://github.com/AcideFluorhydrique/geminiAssist" target="_blank">ソース</a></p>
+								</div>
+							</div>
+
+							<div class="project-category">
+								<h2 class="section-title">🤝 アップストリームへの貢献</h2>
+
+								<div class="project-item">
+									<p class="project-description">自分が使っているオープンソースプロジェクトに、機能追加・バグ修正・翻訳を提供しています。主な貢献先：</p>
+
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/skyschub/chrome-mask" target="_blank">Chrome Mask</a>
+										</div>
+										<p class="project-description">Firefox に「仮面」をかぶせて Chrome のように見せ、Chrome 専用サイトでも正しく動作させます。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/maksimowiczm/find-my-ip" target="_blank">Find my IP</a>
+										</div>
+										<p class="project-description">現在の IP アドレスを取得・保存する軽量アプリ。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/justinrdonnelly/bouncer" target="_blank">Bouncer</a>
+										</div>
+										<p class="project-description">無線接続に適したファイアウォールゾーンの選択を支援します。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/itagagaki/DeepL-Selected-Text" target="_blank">DeepL Selected Text</a>
+										</div>
+										<p class="project-description">選択したテキストを DeepL で翻訳します。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/pintargasper/SmokingTracker" target="_blank">Smoking Tracker</a>
+										</div>
+										<p class="project-description">喫煙の習慣や禁煙の進捗を把握できる、シンプルな喫煙記録アプリ。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/woheller69/gptAssist" target="_blank">gptAssist</a>
+										</div>
+										<p class="project-description">モバイルでの使い勝手を改善した ChatGPT のシンプルな WebView ラッパー。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/james-fray/tab-reloader" target="_blank">Tab Reloader</a>
+										</div>
+										<p class="project-description">タブを自動で再読み込みするマルチブラウザ対応の拡張機能。</p>
+									</div>
+									<div class="contribution-item">
+										<div class="sub-project-title">
+											<a href="https://github.com/insin/control-panel-for-twitter" target="_blank">Control Panel for Twitter</a>
+										</div>
+										<p class="project-description">Twitter/X のタイムラインをより細かく制御し、足りない機能や UI の改善を加えます。</p>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</article>
+			</main>
+		</div>
+	</div>
+</div>
+</body>
+</html>
