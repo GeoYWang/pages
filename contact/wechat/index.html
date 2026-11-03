@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://play-lh.googleusercontent.com/EyZzBivWAT_6dFOiIZ9JwuyE8duosWa98oDXe46yVUqMMTp07b0JVdmJEYxMrRWXzl1K=w240-h480-rw" type="image/png">
+    <script src="/assets/theme.js"></script>
+    <title>WeChat – Why I No Longer Use It</title>
+    <style>
+        /* NYU brand colors, mapped to roles */
+        :root {
+            --page-bg: #eee6f3;
+            --header-bg: #57068c;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(51, 6, 98, 0.08);
+            --heading: #330662;
+            --text: #404040;
+            --muted: #6d6d6d;
+            --accent: #57068c;
+            --accent-soft: #ab82c5;
+            --notice-bg: #eee6f3;
+            --item-bg: #f2f2f2;
+            --item-border: #8900e1;
+            --label-bg: #57068c;
+            --tile-bg: #eee6f3;
+            --tile-hover-bg: #ffffff;
+            --tile-text: #330662;
+            --link: #702b9d;
+            --rule: #d6d6d6;
+        }
+
+        [data-theme="dark"] {
+            --page-bg: #140228;
+            --header-bg: #330662;
+            --card-bg: #1f0439;
+            --card-shadow: rgba(0, 0, 0, 0.4);
+            --heading: #eee6f3;
+            --text: #d6d6d6;
+            --muted: #b8b8b8;
+            --accent: #ab82c5;
+            --accent-soft: #7b5aa6;
+            --notice-bg: #2a0a4b;
+            --item-bg: #2a0a4b;
+            --item-border: #ab82c5;
+            --label-bg: #8900e1;
+            --tile-bg: #2a0a4b;
+            --tile-hover-bg: #3a1463;
+            --tile-text: #eee6f3;
+            --link: #c9a8de;
+            --rule: #3a1463;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .site-header {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1rem 2rem;
+        }
+
+        .site-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .site-header .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 12px var(--card-shadow);
+        }
+
+        .notice {
+            background: var(--notice-bg);
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            margin: 2rem 0;
+        }
+
+        .section h2 {
+            color: var(--heading);
+            font-size: 1.4rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .incident {
+            background: var(--item-bg);
+            border-left: 4px solid var(--item-border);
+            border-radius: 4px;
+            padding: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .incident-label {
+            display: inline-block;
+            background: var(--label-bg);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.1rem 0.6rem;
+            border-radius: 10px;
+            margin-bottom: 0.4rem;
+        }
+
+        .incident h3 {
+            color: var(--heading);
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        ul {
+            padding-left: 1.4rem;
+        }
+
+        li {
+            margin: 0.2rem 0;
+        }
+
+        .contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .contacts a {
+            display: block;
+            background: var(--tile-bg);
+            border: 1px solid transparent;
+            border-radius: 6px;
+            padding: 0.8rem 1rem;
+            color: var(--tile-text);
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .contacts a:hover {
+            border-color: var(--accent-soft);
+            background: var(--tile-hover-bg);
+        }
+
+        .contacts strong {
+            display: block;
+        }
+
+        .contacts span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        ol {
+            padding-left: 1.4rem;
+        }
+
+        .footer {
+            border-top: 1px solid var(--rule);
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .footer p + p {
+            margin-top: 0.5rem;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--link);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 1.5rem;
+            }
+
+            .site-header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>WeChat Is Not a Contact Option</h1>
+        <p class="subtitle">Why I no longer use WeChat, and how to reach me instead</p>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <div class="notice">
+                <p><strong>Notice:</strong> WeChat is no longer provided as a public contact method due to significant
+                    security and privacy concerns, documented below.</p>
+            </div>
+
+            <section class="section">
+                <h2>Summary</h2>
+                <p>After multiple documented incidents, I consider WeChat an unsuitable platform for communication.
+                    This page lists the specific issues that led to this decision.</p>
+            </section>
+
+            <section class="section">
+                <h2>Documented Incidents</h2>
+
+                <div class="incident">
+                    <span class="incident-label">Data exposure</span>
+                    <h3>Personal data exposed via Telegram social-engineering databases</h3>
+                    <ul>
+                        <li>WeChat user data frequently appears in “social engineering databases” (社工庫) on Telegram.</li>
+                        <li>Attackers can dox people (開盒) using a WeChat ID to obtain real names and ID numbers, home
+                            addresses, phone numbers, and associated accounts.</li>
+                    </ul>
+                </div>
+
+                <div class="incident">
+                    <span class="incident-label">Data breach</span>
+                    <h3>Shanghai Suishenma (隨申碼) health-code leak</h3>
+                    <ul>
+                        <li>A massive data breach exposed millions of Shanghai residents.</li>
+                        <li>WeChat integration allowed health data to be correlated with personal identities.</li>
+                        <li>It demonstrated a systemic weakness in WeChat-integrated government systems.</li>
+                    </ul>
+                </div>
+
+                <div class="incident">
+                    <span class="incident-label">Privacy</span>
+                    <h3>Unauthorized hardware access on Android</h3>
+                    <ul>
+                        <li>Documented cases of WeChat accessing the camera without user consent.</li>
+                        <li>Microphone activation in background processes.</li>
+                        <li>Continuous location tracking even when location services are disabled.</li>
+                        <li>Network traffic analysis shows data sent to undisclosed servers.</li>
+                    </ul>
+                </div>
+
+                <div class="incident">
+                    <span class="incident-label">Censorship</span>
+                    <h3>Content manipulation and surveillance</h3>
+                    <ul>
+                        <li>Automatic deletion of WeChat Official Account articles (公眾號文章).</li>
+                        <li>Real-time monitoring of Moments (朋友圈) with retroactive content removal.</li>
+                        <li>Account suspension without an appeal process.</li>
+                        <li>Keyword filtering that affects private conversations.</li>
+                        <li>Image recognition for “sensitive” content.</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 1.5rem;">Security research has also revealed:</p>
+                <ul>
+                    <li>Mini-programs lacking proper sandboxing</li>
+                    <li>Voice message analysis and transcription without consent</li>
+                    <li>Cross-app data sharing with other Tencent products</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>How to Reach Me Instead</h2>
+                <div class="contacts">
+                    <a href="/contact/signal/" target="_blank"><strong>Signal</strong><span>Open link</span></a>
+                    <a href="/contact/olvid/" target="_blank"><strong>Olvid</strong><span>Scan the QR code</span></a>
+                    <a href="/contact/session/" target="_blank"><strong>Session</strong><span>Scan the QR code</span></a>
+                    <a href="/contact/telegram/" target="_blank"><strong>Telegram</strong><span>Open link</span></a>
+                    <a href="/contact/email/" target="_blank"><strong>E-mail</strong><span>OpenPGP</span></a>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>If You Still Use WeChat</h2>
+                <ol>
+                    <li>Disable location services completely.</li>
+                    <li>Revoke camera and microphone permissions.</li>
+                    <li>Use a separate phone number for everything else.</li>
+                    <li>Never share sensitive information via WeChat.</li>
+                    <li>Regularly audit and delete your chat history.</li>
+                    <li>Consider migrating to another platform entirely.</li>
+                </ol>
+            </section>
+
+            <div class="footer">
+                <p>Last updated: 2026-09-22</p>
+                <p>For verification, please refer to independent security research and publicly available breach
+                    reports.</p>
+                <p><strong>Privacy is not about having something to hide; it's about having something to protect.</strong></p>
+                <a class="back" href="/">← Back to home</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

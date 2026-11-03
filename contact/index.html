@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact List</title>
+  <link rel="icon" href="https://play-lh.googleusercontent.com/EyZzBivWAT_6dFOiIZ9JwuyE8duosWa98oDXe46yVUqMMTp07b0JVdmJEYxMrRWXzl1K=w240-h480-rw" type="image/png">
+  <script src="/assets/theme.js"></script>
+  <style>
+    :root { --bg: #eee6f3; --heading: #330662; --text: #404040; --link: #702b9d; }
+    [data-theme="dark"] { --bg: #140228; --heading: #eee6f3; --text: #d6d6d6; --link: #c9a8de; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; padding: 2rem; background: var(--bg); color: var(--text); }
+    h1 { color: var(--heading); }
+    ul { list-style: none; padding: 0; }
+    li { margin: 0.5rem 0; }
+    a { text-decoration: none; color: var(--link); }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>Contact Links</h1>
+  <ul id="file-list">Loading...</ul>
+  <script>
+    const username = 'geoywang';
+    const repo = 'geoywang.github.io';
+    const path = 'contact';
+
+    fetch(`https://api.github.com/repos/${username}/${repo}/contents/${path}`)
+      .then(res => {
+        if (!res.ok) throw new Error('API error: ' + res.status);
+        return res.json();
+      })
+      .then(files => {
+        const ul = document.getElementById('file-list');
+        ul.innerHTML = '';
+        files
+          .filter(file => file.type === 'dir')
+          .forEach(file => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = `./${file.name}/`;
+            a.textContent = file.name;
+            li.appendChild(a);
+            ul.appendChild(li);
+          });
+        if (ul.children.length === 0) {
+          ul.innerHTML = '<li>No contact pages found.</li>';
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('file-list').innerHTML = 'Failed to load.';
+      });
+  </script>
+</body>
+</html>
